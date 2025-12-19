@@ -323,5 +323,140 @@ footer p,footer a{
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
+<!-- POPUP DE LEADS -->
+<div id="popupLead" style="
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,.6);
+z-index:99999;
+align-items:center;
+justify-content:center;
+">
+
+  <div style="
+  background:#fff;
+  width:90%;
+  max-width:400px;
+  padding:30px;
+  border-radius:14px;
+  text-align:center;
+  position:relative;
+  ">
+
+    <span onclick="fecharPopup()" style="
+    position:absolute;
+    top:12px;
+    right:14px;
+    cursor:pointer;
+    font-size:18px;
+    ">✖</span>
+
+    <h2 style="color:#d62828;margin-bottom:10px">
+      🎉 Ganhe 5% de desconto
+    </h2>
+
+    <p style="margin-bottom:20px">
+      Informe seu nome e WhatsApp e receba um desconto exclusivo
+    </p>
+
+    <input id="leadNome" placeholder="Seu nome" style="
+    width:100%;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    ">
+
+    <input id="leadTelefone" placeholder="WhatsApp (DDD)" style="
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    ">
+
+    <button onclick="salvarLead()" style="
+    width:100%;
+    padding:14px;
+    background:#d62828;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-weight:700;
+    cursor:pointer;
+    ">
+      Quero meu desconto
+    </button>
+
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// 🔥 SEU FIREBASE (JÁ CONFIGURADO)
+const firebaseConfig = {
+  apiKey: "AIzaSyBod8YVf5pKWI98m9rRR8axokDkNMlXX-k",
+  authDomain: "aviatordaniel100x.firebaseapp.com",
+  projectId: "aviatordaniel100x",
+  storageBucket: "aviatordaniel100x.firebasestorage.app",
+  messagingSenderId: "169015417803",
+  appId: "1:169015417803:web:ce4aa4f9b77d5ddb07344e"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// ⏱️ ABRE POPUP APÓS 4s ATÉ O LEAD SER ENVIADO
+if(!localStorage.getItem("leadEnviado")){
+  setTimeout(() => {
+    document.getElementById("popupLead").style.display = "flex";
+  }, 4000);
+}
+
+// ❌ FECHAR
+window.fecharPopup = function(){
+  document.getElementById("popupLead").style.display = "none";
+  localStorage.setItem("popupLeadVisto","sim");
+}
+
+// 💾 SALVAR LEAD
+window.salvarLead = async function(){
+  const nome = document.getElementById("leadNome").value.trim();
+  const telefone = document.getElementById("leadTelefone").value.trim();
+
+  if(nome === "" || telefone === ""){
+    alert("Preencha nome e WhatsApp");
+    return;
+  }
+
+  await addDoc(collection(db, "leads"), {
+    nome: nome,
+    telefone: telefone,
+    origem: "popup_site",
+    desconto: "5%",
+    data: serverTimestamp()
+  });
+
+  localStorage.setItem("popupLeadVisto","sim");
+
+  window.open(
+  `https://wa.me/5551998961031?text=Olá, meu nome é ${nome}. Solicitei o desconto de 5% no site.`,
+  "_blank"
+);
+
+document.getElementById("popupLead").innerHTML = `
+  <div style="background:#fff;padding:30px;border-radius:14px;text-align:center">
+    <h2 style="color:#25d366">✔ Solicitação enviada</h2>
+    <p>Você será atendido agora mesmo pelo WhatsApp.</p>
+  </div>
+`;
+
+}
+</script>
+
 </body>
 </html>

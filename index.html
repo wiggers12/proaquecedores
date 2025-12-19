@@ -387,11 +387,89 @@ justify-content:center;
     font-weight:700;
     cursor:pointer;
     ">
-        Quero atendimento agora
+      Quero meu desconto
     </button>
 
   </div>
 </div>
+<!-- CHAT DE ATENDIMENTO -->
+<div id="chatAtendimento" style="
+position:fixed;
+bottom:110px;
+right:20px;
+width:280px;
+background:#fff;
+border-radius:14px;
+box-shadow:0 8px 24px rgba(0,0,0,.2);
+display:none;
+z-index:9999;
+font-family:Inter,sans-serif;
+">
+
+  <div style="
+  background:#d62828;
+  color:#fff;
+  padding:12px 16px;
+  border-radius:14px 14px 0 0;
+  font-weight:700;
+  ">
+    Atendimento Pro Aquecedores
+  </div>
+
+  <div style="padding:14px;font-size:14px;line-height:1.4">
+    👋 Olá! Vi que você está navegando em nosso site.<br><br>
+    Posso te ajudar com um orçamento ou tirar alguma dúvida?
+  </div>
+
+  <div style="padding:14px;display:flex;gap:10px">
+    <button onclick="abrirWhats()" style="
+    flex:1;
+    background:#25d366;
+    color:#fff;
+    border:none;
+    padding:10px;
+    border-radius:8px;
+    font-weight:700;
+    cursor:pointer;
+    ">
+      WhatsApp
+    </button>
+
+    <button onclick="fecharChat()" style="
+    flex:1;
+    background:#eee;
+    border:none;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+    ">
+      Agora não
+    </button>
+  </div>
+
+</div>
+
+<script>
+// abre após 15 segundos
+if(!localStorage.getItem("chatMostrado")){
+  setTimeout(() => {
+    document.getElementById("chatAtendimento").style.display = "block";
+  }, 20000);
+}
+
+function fecharChat(){
+  document.getElementById("chatAtendimento").style.display = "none";
+  localStorage.setItem("chatMostrado","sim");
+}
+
+function abrirWhats(){
+  window.open(
+    "https://wa.me/5551998961031?text=Olá, estou no site da Pro Aquecedores e gostaria de um orçamento.",
+    "_blank"
+  );
+  localStorage.setItem("chatMostrado","sim");
+}
+</script>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -444,7 +522,7 @@ window.salvarLead = async function(){
   localStorage.setItem("popupLeadVisto","sim");
 
   window.open(
-  `https://wa.me/5551998961031?text=Olá, meu nome é ${nome}. Solicitei o desconto de 5% no site, e preciso de um atendimento.`,
+  `https://wa.me/5551998961031?text=Olá, meu nome é ${nome}. Solicitei o desconto de 5% no site.`,
   "_blank"
 );
 

@@ -133,45 +133,19 @@ nav .btn{
   border-radius:18px;
   text-align:center;
   transition: 0.3s;
-  border-bottom: 3px solid transparent;
 }
-.autoridade-card:hover{transform: translateY(-5px); border-color: var(--vermelho); box-shadow: var(--shadow);}
-
-.autoridade-card strong{
-  display:block;
-  font-size:32px;
-  color:var(--vermelho);
-  font-weight: 800;
-}
-
-.autoridade-card span{
-  font-size:15px;
-  color:#555;
-  font-weight: 600;
-}
+.autoridade-card:hover{transform: translateY(-5px); box-shadow: var(--shadow);}
+.autoridade-card strong{ display:block; font-size:32px; color:var(--vermelho); font-weight: 800; }
+.autoridade-card span{ font-size:15px; color:#555; font-weight: 600; }
 
 /* SEÇÕES GERAIS */
 section{padding:90px 8%}
 
 /* SOBRE */
-.sobre{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-}
-.sobre h2{
-  font-size:42px;
-  color:var(--vermelho);
-  margin-bottom:25px;
-  font-weight: 800;
-}
-.sobre p{
-  font-size: 17px;
-  line-height:1.7;
-  margin-bottom:14px;
-  color: #444;
-}
+.sobre{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.sobre h2{ font-size:42px; color:var(--vermelho); margin-bottom:25px; font-weight: 800; }
+.sobre p{ font-size: 17px; margin-bottom:14px; color: #444; }
+
 .btn-whats{
   display:inline-block;
   margin-top:15px;
@@ -186,201 +160,76 @@ section{padding:90px 8%}
 .btn-whats:hover{transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37,211,102,0.2);}
 
 /* VANTAGENS */
-.vantagens{
-  background:var(--cinza);
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  border-radius: 25px;
-}
-.vantagens h2{
-  font-size:36px;
-  color:var(--vermelho);
-  margin-bottom:25px;
-  font-weight: 800;
-}
-.vantagens li{
-  list-style:none;
-  font-size:18px;
-  margin-bottom:18px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 600;
-}
+.vantagens{ background:var(--cinza); display:grid; grid-template-columns:1fr 1fr; gap:50px; border-radius: 25px; }
+.vantagens h2{ font-size:36px; color:var(--vermelho); margin-bottom:25px; font-weight: 800; }
+.vantagens li{ list-style:none; font-size:18px; margin-bottom:18px; display: flex; align-items: center; gap: 12px; font-weight: 600; }
 
 /* COMO FUNCIONA */
-.como-funciona{
-  text-align:center;
-  padding:100px 8%;
-}
-.como-funciona h2{
-  font-size:40px;
-  margin-bottom:50px;
-  font-weight: 800;
-}
-.steps{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-}
-.step-box{
-  background: var(--cinza);
-  padding: 40px 20px;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 20px;
-  transition: 0.3s;
-}
-.step-box:hover{background: var(--vermelho); color: #fff;}
+.como-funciona{ text-align:center; }
+.como-funciona h2{ font-size:40px; margin-bottom:50px; font-weight: 800; }
+.steps{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
+.step-box{ background: var(--cinza); padding: 40px 20px; border-radius: 20px; font-weight: 700; font-size: 20px; }
+
+/* DEPOIMENTOS */
+.depoimentos{ background: var(--vermelho); color: #fff; text-align: center; border-radius: 30px; margin: 0 4%; }
+.depoimentos h2{ font-size: 40px; margin-bottom: 40px; }
+.depoimentos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.depoimento-card { background: rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px); text-align: left; }
+.stars { color: #ffbc00; font-size: 20px; margin-bottom: 15px; }
 
 /* SERVIÇOS */
 .servicos{text-align:center}
-.servicos h2{
-  font-size:40px;
-  margin-bottom:55px;
-  font-weight: 800;
-}
-.grid-servicos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-.servico{
-  border-radius:20px;
-  overflow:hidden;
-  position:relative;
-  height:350px;
-  box-shadow: var(--shadow);
-}
-.servico img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.5s;
-}
+.grid-servicos{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; }
+.servico{ border-radius:20px; overflow:hidden; position:relative; height:350px; box-shadow: var(--shadow); }
+.servico img{ width:100%; height:100%; object-fit:cover; transition:.5s; }
 .servico:hover img{transform:scale(1.1)}
-.servico span{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding:25px 15px;
-  background:linear-gradient(transparent,rgba(0,0,0,0.9));
-  color:#fff;
-  font-size:22px;
-  font-weight:700;
-}
+.servico span{ position:absolute; bottom:0; width:100%; padding:25px 15px; background:linear-gradient(transparent,rgba(0,0,0,0.9)); color:#fff; font-size:22px; font-weight:700; }
+
+/* FAQ Acordeão */
+.faq-section { background: #fff; }
+.faq-container { max-width: 800px; margin: 40px auto 0; text-align: left; }
+.faq-item { background: #f9f9f9; margin-bottom: 15px; border-radius: 12px; border: 1px solid #eee; }
+.faq-question { padding: 20px; cursor: pointer; font-weight: 700; display: flex; justify-content: space-between; align-items: center; font-size: 18px; }
+.faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.3s ease; color: #555; }
+.faq-item.active .faq-answer { padding-bottom: 20px; max-height: 200px; }
+.faq-item.active .faq-question span { transform: rotate(45deg); }
+.faq-question span { transition: 0.3s; font-size: 24px; color: var(--vermelho); }
 
 /* CTA */
-.cta{
-  background:var(--vermelho);
-  color:#fff;
-  text-align:center;
-  border-radius: 25px;
-  margin: 0 40px;
-}
-.cta h2{
-  font-size:40px;
-  margin-bottom:30px;
-  font-weight: 800;
-}
-.cta a{
-  background:#fff;
-  color:var(--vermelho);
-  padding:18px 45px;
-  border-radius:50px;
-  font-size:18px;
-  font-weight:800;
-  text-decoration:none;
-  display: inline-block;
-  transition: 0.3s;
-}
-.cta a:hover{transform: scale(1.05);}
+.cta{ background:var(--vermelho); color:#fff; text-align:center; border-radius: 25px; margin: 0 4%; }
+.cta h2{ font-size:40px; margin-bottom:30px; font-weight: 800; }
+.cta a{ background:#fff; color:var(--vermelho); padding:18px 45px; border-radius:50px; font-size:18px; font-weight:800; text-decoration:none; display: inline-block; transition: 0.3s; }
 
 /* FOOTER */
-footer{
-  background:#0a0a0a;
-  color:#fff;
-  padding:80px 8% 30px;
-}
-.footer-grid{
-  display:grid;
-  grid-template-columns:2fr 2fr 1fr;
-  gap:50px;
-  margin-bottom:40px;
-}
-footer h3{margin-bottom:20px; color: var(--vermelho); font-size: 22px;}
-footer p,footer a{
-  color:#ccc;
-  text-decoration:none;
-  display:block;
-  margin-bottom:12px;
-}
-.copy{
-  border-top:1px solid rgba(255,255,255,.1);
-  padding-top:25px;
-  text-align:center;
-  font-size:14px;
-  color: #666;
-}
+footer{ background:#0a0a0a; color:#fff; padding:80px 8% 30px; }
+.footer-grid{ display:grid; grid-template-columns:2fr 2fr 1fr; gap:50px; }
+.copy{ border-top:1px solid rgba(255,255,255,.1); padding-top:25px; text-align:center; font-size:14px; color: #666; margin-top: 40px; }
 
 /* WHATSAPP FLOAT */
-.whatsapp-float{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  width:65px;
-  height:65px;
-  background:#25d366;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 10px 25px rgba(37,211,102,0.4);
-  z-index:9999;
-  transition: 0.3s;
-}
+.whatsapp-float{ position:fixed; bottom:25px; right:25px; width:65px; height:65px; background:#25d366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 25px rgba(37,211,102,0.4); z-index:9999; transition: 0.3s; }
 .whatsapp-float:hover{transform: scale(1.1);}
 .whatsapp-float img{width:35px}
 
-/* MOBILE */
-@media(max-width:900px){
-  nav a:not(.btn){display:none}
-  .hero{ justify-content:center; text-align:center; padding-top: 50px;}
-  .hero-content{ text-align:center; }
-  .hero-actions{ justify-content:center; flex-direction: column; }
-  .hero h1{ font-size:32px; }
-  .sobre, .vantagens{ grid-template-columns:1fr; }
-  section{padding:70px 6%}
-  .footer-grid{ grid-template-columns:1fr; text-align:center; }
-  .cta{ margin: 0 15px; }
-}
-
-/* AJUSTES CHATBOT MOBILE */
-@media (max-width: 768px) {
-  #chatBot{
-    left: 15px !important;
-    right: 15px !important;
-    bottom: 90px !important;
-    width: auto !important;
-  }
-  #chatLauncher{
-    left:15px;
-    bottom:100px;
-  }
-}
-
-/* ANIMAÇÃO PULSE */
+/* LANÇADOR CHAT & ANIMAÇÃO PULSE */
 @keyframes pulseChat {
   0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214,40,40, 0.7); }
   70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(214,40,40, 0); }
   100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214,40,40, 0); }
 }
+#chatLauncher{ position:fixed; bottom:110px; left:20px; background:#d62828; color:#fff; padding:14px 22px; border-radius:50px; display:flex; align-items:center; gap:12px; cursor:pointer; box-shadow:0 8px 25px rgba(214,40,40,0.4); z-index:9999; animation: pulseChat 2.2s infinite; }
 
-#chatLauncher{
-  animation: pulseChat 2.2s infinite;
+/* MOBILE */
+@media(max-width:900px){
+  nav a:not(.btn){display:none}
+  .hero{ justify-content:center; text-align:center; }
+  .hero-content{ text-align:center; }
+  .hero-actions{ justify-content:center; flex-direction: column; }
+  .sobre, .vantagens{ grid-template-columns:1fr; }
+  .depoimentos, .cta{ margin: 0 10px; }
+  .footer-grid{ grid-template-columns:1fr; text-align:center; }
+  #chatLauncher{ left: 10px; bottom: 100px; padding: 10px 15px; }
+  #chatBot { width: calc(100% - 30px) !important; left: 15px !important; bottom: 90px !important;}
 }
-
 </style>
 </head>
 
@@ -392,111 +241,99 @@ footer p,footer a{
     <a href="#inicio">Início</a>
     <a href="#servicos">Serviços</a>
     <a href="#sobre">Quem Somos</a>
-    <a class="btn" href="#contato">Contato</a>
+    <a class="btn" href="#contato">Orçamento</a>
   </nav>
 </header>
 
 <section class="hero" id="inicio">
   <div class="hero-content">
-    <h1>Instalação profissional de aquecedores a gás em Canoas</h1>
-    <p class="hero-sub">
-      Venda, instalação, manutenção e assistência técnica especializada.<br>
-      Segurança, conforto e garantia no serviço.
-    </p>
+    <h1>Instalação Profissional de Aquecedores em Canoas</h1>
+    <p class="hero-sub">Segurança, conforto térmico e técnicos especializados para sua casa ou condomínio.</p>
     <div class="hero-actions">
-      <a href="#contato" class="btn-principal">Solicitar orçamento</a>
-      <a href="https://wa.me/5551998961031" class="btn-secundario">Falar com especialista</a>
+      <a href="#contato" class="btn-principal">Solicitar Orçamento</a>
+      <a href="https://wa.me/5551998961031" class="btn-secundario">Falar com Especialista</a>
     </div>
   </div>
 </section>
 
 <section class="autoridade">
-  <div class="autoridade-card">
-    <strong>+1.000</strong>
-    <span>Atendimentos realizados</span>
-  </div>
-  <div class="autoridade-card">
-    <strong>Técnicos</strong>
-    <span>Especializados</span>
-  </div>
-  <div class="autoridade-card">
-    <strong>Canoas</strong>
-    <span>Região atendida</span>
-  </div>
-  <div class="autoridade-card">
-    <strong>Garantia</strong>
-    <span>Segurança no serviço</span>
-  </div>
+  <div class="autoridade-card"><strong>+1.000</strong><span>Atendimentos</span></div>
+  <div class="autoridade-card"><strong>Técnicos</strong><span>Especializados</span></div>
+  <div class="autoridade-card"><strong>Canoas</strong><span>Região Atendida</span></div>
+  <div class="autoridade-card"><strong>Garantia</strong><span>Segurança Total</span></div>
 </section>
 
 <section class="sobre" id="sobre">
   <div>
     <h2>Pro Aquecedores</h2>
-    <p>Atuamos em Canoas e região com instalação, manutenção e venda de aquecedores a gás.</p>
-    <p>Equipe técnica especializada, seguindo todas as normas de segurança vigentes para sua tranquilidade.</p>
-    <a class="btn-whats" href="https://wa.me/5551998961031" target="_blank">
-      Falar no WhatsApp
-    </a>
+    <p>Somos especialistas em instalação e manutenção de aquecedores a gás em Canoas e Região Metropolitana.</p>
+    <p>Trabalhamos rigorosamente dentro das normas NBR, garantindo um banho quente com total segurança para sua família.</p>
+    <a class="btn-whats" href="https://wa.me/5551998961031" target="_blank">Atendimento WhatsApp</a>
   </div>
   <img src="aquecedor2.jpg" style="width:100%; border-radius:20px; box-shadow: var(--shadow);">
 </section>
 
-<section class="vantagens">
-  <div style="background: url('aquecedor3.jpg') center/cover; min-height: 350px; border-radius: 25px 0 0 25px;" class="hide-mobile"></div>
-  <div style="padding: 50px;">
-    <h2>Por que nos escolher?</h2>
-    <ul>
-      <li>🔥 Instalação profissional certificada</li>
-      <li>🛠️ Manutenção preventiva e corretiva</li>
-      <li>🌡️ Conforto térmico garantido</li>
-      <li>⚡ Economia e eficiência para seu lar</li>
-    </ul>
-  </div>
-</section>
-
-<section class="como-funciona">
-  <h2>Como funciona o atendimento</h2>
-  <div class="steps">
-    <div class="step-box">1️⃣ Você entra em contato</div>
-    <div class="step-box">2️⃣ Avaliamos sua necessidade</div>
-    <div class="step-box">3️⃣ Instalamos com segurança</div>
+<section class="depoimentos">
+  <h2>O que nossos clientes dizem</h2>
+  <div class="depoimentos-grid">
+    <div class="depoimento-card">
+      <div class="stars">★★★★★</div>
+      <p>"Excelente serviço! O técnico foi muito profissional e resolveu o problema do aquecedor na hora. Super recomendo."</p>
+      <br><strong>- João Carlos, Canoas</strong>
+    </div>
+    <div class="depoimento-card">
+      <div class="stars">★★★★★</div>
+      <p>"Instalação limpa e dentro do prazo. Fiquei muito satisfeita com a transparência no orçamento."</p>
+      <br><strong>- Maria Eduarda, Esteio</strong>
+    </div>
+    <div class="depoimento-card">
+      <div class="stars">★★★★★</div>
+      <p>"Atendimento nota 10 no WhatsApp. Tiraram todas as minhas dúvidas antes de fechar o serviço."</p>
+      <br><strong>- Ricardo S., Porto Alegre</strong>
+    </div>
   </div>
 </section>
 
 <section class="servicos" id="servicos">
-  <h2>Nossos Serviços</h2>
+  <h2 style="font-size:40px; margin-bottom:50px; font-weight:800;">Nossos Serviços</h2>
   <div class="grid-servicos">
     <div class="servico"><img src="aquecedor1.jpg"><span>Instalação</span></div>
     <div class="servico"><img src="aquecedor3.jpg"><span>Manutenção</span></div>
-    <div class="servico"><img src="aquecedor4.jpg"><span>Conversão GN / GLP</span></div>
+    <div class="servico"><img src="aquecedor4.jpg"><span>Conversão GN/GLP</span></div>
     <div class="servico"><img src="aquecedor5.jpg"><span>Dutos e Exaustão</span></div>
     <div class="servico"><img src="aquecedor6.jpg"><span>Substituição</span></div>
   </div>
 </section>
 
+<section class="faq-section">
+  <h2 style="text-align:center; font-size:40px; font-weight:800;">Dúvidas Frequentes</h2>
+  <div class="faq-container">
+    <div class="faq-item">
+      <div class="faq-question">Vocês atendem em quais cidades? <span>+</span></div>
+      <div class="faq-answer">Atendemos em Canoas, Esteio, Sapucaia, São Leopoldo e Porto Alegre.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Trabalham com quais marcas? <span>+</span></div>
+      <div class="faq-answer">Trabalhamos com as principais marcas: Rinnai, Lorenzetti, Komeco, Bosch, Rheem, entre outras.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">O orçamento tem custo? <span>+</span></div>
+      <div class="faq-answer">Para a região de Canoas, realizamos orçamentos sem compromisso via WhatsApp ou visita técnica agendada.</div>
+    </div>
+  </div>
+</section>
+
 <section class="cta" id="contato">
-  <h2>Solicite um orçamento agora mesmo</h2>
-  <p style="margin-bottom: 30px; opacity: 0.9;">Atendimento ágil para Canoas e Região Metropolitana.</p>
-  <a href="https://wa.me/5551998961031" target="_blank">Atendimento via WhatsApp</a>
+  <h2>Solicite seu orçamento agora</h2>
+  <p style="margin-bottom:30px;">Técnicos prontos para te atender com agilidade.</p>
+  <a href="https://wa.me/5551998961031" target="_blank">Falar com Atendente</a>
 </section>
 
 <footer>
   <div class="footer-grid">
-    <div>
-      <img src="logo.png" style="height:45px; margin-bottom: 20px;">
-      <p>Sua segurança e conforto são nossa prioridade número um.</p>
-    </div>
-    <div>
-      <h3>Contato</h3>
-      <p>📞 +55 51 9896-1031</p>
-      <p>📍 Canoas - RS</p>
-    </div>
-    <div>
-      <h3>Menu</h3>
-      <a href="#inicio">Início</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#sobre">Quem Somos</a>
-    </div>
+    <div><img src="logo.png" style="height:45px; margin-bottom:20px;"><p>Conforto e segurança em aquecimento a gás.</p></div>
+    <div><h3>Contato</h3><p>📞 +55 51 9896-1031</p><p>📍 Canoas - RS</p></div>
+    <div><h3>Menu</h3><a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#sobre">Quem Somos</a></div>
   </div>
   <div class="copy">© 2025 Pro Aquecedores - Todos os direitos reservados.</div>
 </footer>
@@ -508,8 +345,8 @@ footer p,footer a{
 <div id="popupLead" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:99999;align-items:center;justify-content:center;">
   <div style="background:#fff;width:90%;max-width:400px;padding:35px;border-radius:20px;text-align:center;position:relative;box-shadow: 0 15px 50px rgba(0,0,0,0.3);">
     <span onclick="fecharPopup()" style="position:absolute;top:15px;right:18px;cursor:pointer;font-size:20px;color:#999;">✖</span>
-    <h2 style="color:#d62828;margin-bottom:12px; font-weight: 800;">🎉 Ganhe 5% de desconto</h2>
-    <p style="margin-bottom:25px; color: #555;">Informe seu nome e WhatsApp e receba um desconto exclusivo agora mesmo.</p>
+    <h2 style="color:#d62828;margin-bottom:12px; font-weight: 800;">🎉 Ganhe 5% de Desconto</h2>
+    <p style="margin-bottom:25px; color: #555;">Informe seu nome e WhatsApp para receber o cupom exclusivo.</p>
     <input id="leadNome" placeholder="Seu nome" style="width:100%;padding:14px;margin-bottom:12px;border-radius:10px;border:1px solid #ddd; outline: none;">
     <input id="leadTelefone" placeholder="WhatsApp (DDD)" style="width:100%;padding:14px;margin-bottom:20px;border-radius:10px;border:1px solid #ddd; outline: none;">
     <button onclick="salvarLead()" style="width:100%;padding:16px;background:#d62828;color:#fff;border:none;border-radius:10px;font-weight:700;cursor:pointer;">Quero meu desconto</button>
@@ -527,14 +364,14 @@ footer p,footer a{
   </div>
 </div>
 
-<div id="chatLauncher" onclick="abrirChat()" style="position:fixed;bottom:110px;left:20px;background:#d62828;color:#fff;padding:14px 22px;border-radius:50px;display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:0 8px 25px rgba(214,40,40,0.4);z-index:9999;">
+<div id="chatLauncher" onclick="abrirChat()">
   <span style="background:#fff;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;">🤖</span>
   <span id="chatSaudacao" style="font-weight:700;font-size:14px;">Olá! Posso ajudar?</span>
 </div>
 
 <script>
+// Lógica do Chatbot
 let etapa = 0; let dados = {};
-function saudacao(){ const h = new Date().getHours(); if(h < 12) return "☀️ Bom dia!"; if(h < 18) return "🌤️ Boa tarde!"; return "🌙 Boa noite!"; }
 function addMsg(text, bot=true){
   const chat = document.getElementById("chatArea");
   const msg = document.createElement("div");
@@ -543,39 +380,23 @@ function addMsg(text, bot=true){
   msg.innerHTML = `<span style="display:inline-block;background:${bot ? "#f1f1f1" : "#25d366"};color:${bot ? "#000" : "#fff"};padding:12px 16px;border-radius:15px;max-width:85%; font-weight:500;">${text}</span>`;
   chat.appendChild(msg); chat.scrollTop = chat.scrollHeight;
 }
-addMsg(`${saudacao()} Sou o assistente da Pro Aquecedores 👋`);
-setTimeout(() => addMsg("Como posso ajudar você hoje?"), 500);
-setTimeout(() => {
-  const chat = document.getElementById("chatArea");
-  const div = document.createElement("div");
-  div.innerHTML = `<button class="botBtn" onclick="iniciar()">💬 Iniciar atendimento</button>`;
-  chat.appendChild(div);
-}, 1000);
-function iniciar(){ addMsg("Iniciar atendimento", false); setTimeout(() => { addMsg("Perfeito! Escolha uma opção abaixo:"); mostrarServicos(); }, 600); }
+function abrirChat(){ document.getElementById("chatLauncher").style.display = "none"; document.getElementById("chatBot").style.display = "block"; addMsg("Olá! Sou o assistente Pro Aquecedores 👋"); setTimeout(() => addMsg("O que você deseja hoje?"), 500); setTimeout(mostrarServicos, 1000); }
+function fecharChat(){ document.getElementById("chatBot").style.display = "none"; document.getElementById("chatLauncher").style.display = "flex"; }
 function mostrarServicos(){
   const chat = document.getElementById("chatArea");
   const div = document.createElement("div");
-  div.innerHTML = `<button class="botBtn" onclick="escolherServico('Compra de aquecedor')">🛒 Compra</button><button class="botBtn" onclick="escolherServico('Instalação')">🔧 Instalação</button><button class="botBtn" onclick="escolherServico('Manutenção')">🛠️ Manutenção</button><button class="botBtn" onclick="escolherServico('Assistência técnica')">🆘 Assistência</button>`;
+  div.innerHTML = `<button onclick="escolherServico('Instalação')" style="background:#25d366; color:#fff; border:none; padding:8px 12px; border-radius:8px; margin:4px; cursor:pointer; font-weight:bold;">🔧 Instalação</button><button onclick="escolherServico('Manutenção')" style="background:#25d366; color:#fff; border:none; padding:8px 12px; border-radius:8px; margin:4px; cursor:pointer; font-weight:bold;">🛠️ Manutenção</button>`;
   chat.appendChild(div);
 }
-function escolherServico(servico){
-  dados.servico = servico; addMsg(servico, false);
-  setTimeout(() => { addMsg("Ótimo 👍 Em qual cidade você está?"); document.getElementById("chatInput").style.display = "block"; etapa = 1; }, 600);
-}
-document.getElementById("userInput").addEventListener("keydown", e => {
-  if(e.key === "Enter" && etapa === 1){
-    const cidade = e.target.value.trim(); if(!cidade) return;
-    dados.cidade = cidade; addMsg(cidade, false); e.target.value = "";
-    document.getElementById("chatInput").style.display = "none";
-    setTimeout(() => { addMsg("Estou te conectando agora mesmo com nossos técnicos... 😊");
-      setTimeout(() => { window.open(`https://wa.me/5551998961031?text=${encodeURIComponent(`Olá! Gostaria de ${dados.servico}. Sou de ${dados.cidade}.`)}`, "_blank"); }, 1200);
-    }, 600);
-  }
+function escolherServico(servico){ dados.servico = servico; addMsg(servico, false); setTimeout(() => { addMsg("Para qual cidade?"); document.getElementById("chatInput").style.display = "block"; etapa = 1; }, 600); }
+document.getElementById("userInput").addEventListener("keydown", e => { if(e.key === "Enter" && etapa === 1){ const cidade = e.target.value; window.open(`https://wa.me/5551998961031?text=Olá! Gostaria de ${dados.servico} em ${cidade}.`, "_blank"); } });
+
+// Lógica FAQ
+document.querySelectorAll('.faq-question').forEach(item => {
+  item.addEventListener('click', () => {
+    item.parentElement.classList.toggle('active');
+  });
 });
-function textoSaudacao(){ const h = new Date().getHours(); if(h < 12) return "☀️ Bom dia! Posso ajudar?"; if(h < 18) return "🌤️ Boa tarde! Posso ajudar?"; return "🌙 Boa noite! Posso ajudar?"; }
-document.getElementById("chatSaudacao").innerText = textoSaudacao();
-function abrirChat(){ document.getElementById("chatLauncher").style.display = "none"; document.getElementById("chatBot").style.display = "block"; }
-function fecharChat(){ document.getElementById("chatBot").style.display = "none"; document.getElementById("chatLauncher").style.display = "flex"; }
 </script>
 
 <script type="module">
@@ -594,15 +415,15 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 if(!localStorage.getItem("leadEnviado")){ setTimeout(() => { document.getElementById("popupLead").style.display = "flex"; }, 4000); }
-window.fecharPopup = function(){ document.getElementById("popupLead").style.display = "none"; localStorage.setItem("popupLeadVisto","sim"); }
+window.fecharPopup = function(){ document.getElementById("popupLead").style.display = "none"; }
 window.salvarLead = async function(){
-  const nome = document.getElementById("leadNome").value.trim();
-  const telefone = document.getElementById("leadTelefone").value.trim();
-  if(nome === "" || telefone === ""){ alert("Preencha todos os campos"); return; }
-  await addDoc(collection(db, "leads"), { nome, telefone, origem: "popup_site", data: serverTimestamp() });
-  localStorage.setItem("leadEnviado","sim");
-  window.open(`https://wa.me/5551998961031?text=Olá, meu nome é ${nome}. Quero meu desconto de 5% solicitado no site!`, "_blank");
-  document.getElementById("popupLead").innerHTML = `<div style="padding:40px;"><h2 style="color:#25d366">✔ Enviado!</h2><p>Você será atendido agora no WhatsApp.</p></div>`;
+  const nome = document.getElementById("leadNome").value;
+  const tel = document.getElementById("leadTelefone").value;
+  if(!nome || !tel) return alert("Preencha tudo!");
+  await addDoc(collection(db, "leads"), { nome, tel, data: serverTimestamp() });
+  localStorage.setItem("leadEnviado", "true");
+  window.open(`https://wa.me/5551998961031?text=Olá, sou ${nome}. Quero meu desconto!`, "_blank");
+  document.getElementById("popupLead").style.display = "none";
 }
 </script>
 

@@ -10,8 +10,10 @@
 <style>
 :root{
   --vermelho:#d62828;
+  --vermelho-escuro: #b21d1d;
   --escuro:#111;
   --cinza:#f5f5f5;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 *{
@@ -22,19 +24,20 @@
 }
 
 html{scroll-behavior:smooth}
-body{background:#fff;color:#222}
+body{background:#fff;color:#222; line-height: 1.6;}
 
 /* HEADER */
 header{
   position:fixed;
   top:0;
   width:100%;
-  background:#fff;
+  background:rgba(255,255,255,0.98);
+  backdrop-filter: blur(10px);
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:14px 6%;
-  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
   z-index:1000;
 }
 header img{height:42px}
@@ -42,258 +45,49 @@ nav a{
   margin:0 12px;
   text-decoration:none;
   color:#222;
-  font-weight:500;
+  font-weight:600;
+  transition: 0.3s;
 }
+nav a:hover{color: var(--vermelho)}
 nav .btn{
   background:var(--vermelho);
   color:#fff;
-  padding:10px 18px;
-  border-radius:6px;
-  font-weight:600;
+  padding:10px 20px;
+  border-radius:8px;
+  font-weight:700;
 }
 
 /* HERO */
 .hero{
-  margin-top:80px;
+  margin-top:70px;
   min-height:90vh;
   background:
-    linear-gradient(rgba(214,40,40,.75),rgba(214,40,40,.75)),
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
     url("aquecedor1.jpg") center/cover;
   display:flex;
   align-items:center;
   justify-content:flex-end;
   padding:0 8%;
 }
+
+.hero-content{
+  max-width:650px;
+  text-align:right;
+}
+
 .hero h1{
   color:#fff;
-  font-size:46px;
-  max-width:540px;
-  text-align:right;
-}
-
-/* SEÇÕES */
-section{padding:90px 6%}
-
-/* SOBRE */
-.sobre{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
-}
-.sobre h2{
-  font-size:40px;
-  color:var(--vermelho);
-  margin-bottom:20px;
-}
-.sobre p{
-  line-height:1.7;
-  margin-bottom:14px;
-}
-.btn-whats{
-  display:inline-block;
-  margin-top:10px;
-  background:var(--vermelho);
-  color:#fff;
-  padding:14px 28px;
-  border-radius:6px;
-  font-weight:700;
-  text-decoration:none;
-}
-
-/* VANTAGENS */
-.vantagens{
-  background:var(--cinza);
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-}
-.vantagens h2{
-  font-size:36px;
-  color:var(--vermelho);
-  margin-bottom:20px;
-}
-.vantagens li{
-  list-style:none;
-  font-size:18px;
-  margin-bottom:14px;
-}
-
-/* SERVIÇOS */
-.servicos{text-align:center}
-.servicos h2{
-  font-size:38px;
-  margin-bottom:50px;
-}
-.grid-servicos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:26px;
-}
-.servico{
-  border-radius:16px;
-  overflow:hidden;
-  position:relative;
-  height:300px;
-}
-.servico img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.4s;
-}
-.servico:hover img{transform:scale(1.08)}
-.servico span{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding:14px;
-  background:linear-gradient(transparent,rgba(0,0,0,.85));
-  color:#fff;
-  font-size:20px;
-  font-weight:700;
-}
-
-/* CTA */
-.cta{
-  background:var(--vermelho);
-  color:#fff;
-  text-align:center;
-}
-.cta h2{
-  font-size:38px;
-  margin-bottom:25px;
-}
-.cta a{
-  background:#fff;
-  color:var(--vermelho);
-  padding:16px 36px;
-  border-radius:8px;
-  font-size:18px;
-  font-weight:800;
-  text-decoration:none;
-}
-
-/* FOOTER */
-footer{
-  background:#111;
-  color:#fff;
-  padding:60px 6% 25px;
-}
-.footer-grid{
-  display:grid;
-  grid-template-columns:2fr 2fr 1fr;
-  gap:40px;
-  margin-bottom:30px;
-}
-footer h3{margin-bottom:14px}
-footer p,footer a{
-  color:#fff;
-  text-decoration:none;
-  display:block;
-  margin-bottom:8px;
-}
-.copy{
-  border-top:1px solid rgba(255,255,255,.2);
-  padding-top:15px;
-  text-align:center;
-  font-size:14px;
-}
-
-/* WHATSAPP */
-.whatsapp-float{
-  position:fixed;
-  bottom:22px;
-  right:22px;
-  width:64px;
-  height:64px;
-  background:#25d366;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 8px 20px rgba(0,0,0,.3);
-  z-index:9999;
-}
-.whatsapp-float img{width:34px}
-
-/* MOBILE */
-@media(max-width:900px){
-  nav a{display:none}
-  .hero{
-    justify-content:center;
-    padding:0 6%;
-    text-align:center;
-  }
-  .hero h1{
-    font-size:30px;
-    text-align:center;
-  }
-  .sobre,.vantagens{
-    grid-template-columns:1fr;
-  }
-  section{padding:70px 5%}
-  .footer-grid{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-}
-
-/* ===============================
-   AJUSTES CHATBOT MOBILE
-================================ */
-@media (max-width: 768px) {
-
-  #chatBot{
-    left: 10px !important;
-    right: 10px !important;
-    bottom: 80px !important;
-    width: auto !important;
-    max-width: calc(100% - 20px);
-    border-radius: 14px;
-  }
-
-#chatLauncher{
-  left:10px;
-  bottom:90px;
-  padding:10px 14px;
-}
-
-#chatLauncher span:last-child{
-  font-size:13px;
-}
-#chatLauncher{
-  animation: pulseChat 2.6s infinite;
-}
-
-  #chatArea{
-    height: 220px !important;
-    font-size: 15px;
-  }
-
-  .botBtn{
-    width: 100%;
-    margin: 6px 0;
-    font-size: 15px;
-    padding: 12px;
-  }
-
-  #chatInput input{
-    font-size: 16px; /* evita zoom automático no iOS */
-    padding: 12px;
-  }
-
-}
-.hero-content{
-  max-width:600px;
-  text-align:right;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.1;
 }
 
 .hero-sub{
   color:#fff;
-  font-size:18px;
-  margin:20px 0 30px;
+  font-size:19px;
+  margin:25px 0 35px;
   line-height:1.5;
+  opacity: 0.95;
 }
 
 .hero-actions{
@@ -303,13 +97,15 @@ footer p,footer a{
 }
 
 .btn-principal{
-  background:#fff;
-  color:#d62828;
-  padding:14px 30px;
+  background:var(--vermelho);
+  color:#fff;
+  padding:16px 32px;
   border-radius:8px;
   font-weight:800;
   text-decoration:none;
+  transition: 0.3s;
 }
+.btn-principal:hover{background: var(--vermelho-escuro); transform: scale(1.05);}
 
 .btn-secundario{
   border:2px solid #fff;
@@ -318,83 +114,272 @@ footer p,footer a{
   border-radius:8px;
   font-weight:700;
   text-decoration:none;
+  transition: 0.3s;
 }
+.btn-secundario:hover{background: #fff; color: var(--vermelho);}
 
+/* AUTORIDADE */
 .autoridade{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;
-  padding:40px 6%;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:25px;
+  padding:60px 8%;
   background:#fff;
-  text-align:center;
 }
 
 .autoridade-card{
-  background:#f7f7f7;
-  padding:30px 20px;
-  border-radius:14px;
+  background:#f9f9f9;
+  padding:40px 25px;
+  border-radius:18px;
+  text-align:center;
+  transition: 0.3s;
+  border-bottom: 3px solid transparent;
 }
+.autoridade-card:hover{transform: translateY(-5px); border-color: var(--vermelho); box-shadow: var(--shadow);}
 
 .autoridade-card strong{
   display:block;
-  font-size:28px;
-  color:#d62828;
+  font-size:32px;
+  color:var(--vermelho);
+  font-weight: 800;
 }
 
 .autoridade-card span{
   font-size:15px;
-  color:#444;
+  color:#555;
+  font-weight: 600;
 }
 
+/* SEÇÕES GERAIS */
+section{padding:90px 8%}
+
+/* SOBRE */
+.sobre{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+.sobre h2{
+  font-size:42px;
+  color:var(--vermelho);
+  margin-bottom:25px;
+  font-weight: 800;
+}
+.sobre p{
+  font-size: 17px;
+  line-height:1.7;
+  margin-bottom:14px;
+  color: #444;
+}
+.btn-whats{
+  display:inline-block;
+  margin-top:15px;
+  background:#25d366;
+  color:#fff;
+  padding:16px 32px;
+  border-radius:8px;
+  font-weight:700;
+  text-decoration:none;
+  transition: 0.3s;
+}
+.btn-whats:hover{transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37,211,102,0.2);}
+
+/* VANTAGENS */
+.vantagens{
+  background:var(--cinza);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  border-radius: 25px;
+}
+.vantagens h2{
+  font-size:36px;
+  color:var(--vermelho);
+  margin-bottom:25px;
+  font-weight: 800;
+}
+.vantagens li{
+  list-style:none;
+  font-size:18px;
+  margin-bottom:18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+/* COMO FUNCIONA */
 .como-funciona{
   text-align:center;
-  padding:80px 6%;
+  padding:100px 8%;
 }
-
 .como-funciona h2{
-  font-size:36px;
-  margin-bottom:40px;
+  font-size:40px;
+  margin-bottom:50px;
+  font-weight: 800;
 }
-
 .steps{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+.step-box{
+  background: var(--cinza);
+  padding: 40px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  transition: 0.3s;
+}
+.step-box:hover{background: var(--vermelho); color: #fff;}
+
+/* SERVIÇOS */
+.servicos{text-align:center}
+.servicos h2{
+  font-size:40px;
+  margin-bottom:55px;
+  font-weight: 800;
+}
+.grid-servicos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.servico{
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+  height:350px;
+  box-shadow: var(--shadow);
+}
+.servico img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.5s;
+}
+.servico:hover img{transform:scale(1.1)}
+.servico span{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  padding:25px 15px;
+  background:linear-gradient(transparent,rgba(0,0,0,0.9));
+  color:#fff;
+  font-size:22px;
+  font-weight:700;
+}
+
+/* CTA */
+.cta{
+  background:var(--vermelho);
+  color:#fff;
+  text-align:center;
+  border-radius: 25px;
+  margin: 0 40px;
+}
+.cta h2{
+  font-size:40px;
+  margin-bottom:30px;
+  font-weight: 800;
+}
+.cta a{
+  background:#fff;
+  color:var(--vermelho);
+  padding:18px 45px;
+  border-radius:50px;
   font-size:18px;
+  font-weight:800;
+  text-decoration:none;
+  display: inline-block;
+  transition: 0.3s;
+}
+.cta a:hover{transform: scale(1.05);}
+
+/* FOOTER */
+footer{
+  background:#0a0a0a;
+  color:#fff;
+  padding:80px 8% 30px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 2fr 1fr;
+  gap:50px;
+  margin-bottom:40px;
+}
+footer h3{margin-bottom:20px; color: var(--vermelho); font-size: 22px;}
+footer p,footer a{
+  color:#ccc;
+  text-decoration:none;
+  display:block;
+  margin-bottom:12px;
+}
+.copy{
+  border-top:1px solid rgba(255,255,255,.1);
+  padding-top:25px;
+  text-align:center;
+  font-size:14px;
+  color: #666;
 }
 
-.fade-up{
-  opacity:0;
-  transform:translateY(20px);
-  transition:.6s ease;
+/* WHATSAPP FLOAT */
+.whatsapp-float{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  width:65px;
+  height:65px;
+  background:#25d366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 25px rgba(37,211,102,0.4);
+  z-index:9999;
+  transition: 0.3s;
 }
-.fade-up.show{
-  opacity:1;
-  transform:none;
+.whatsapp-float:hover{transform: scale(1.1);}
+.whatsapp-float img{width:35px}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav a:not(.btn){display:none}
+  .hero{ justify-content:center; text-align:center; padding-top: 50px;}
+  .hero-content{ text-align:center; }
+  .hero-actions{ justify-content:center; flex-direction: column; }
+  .hero h1{ font-size:32px; }
+  .sobre, .vantagens{ grid-template-columns:1fr; }
+  section{padding:70px 6%}
+  .footer-grid{ grid-template-columns:1fr; text-align:center; }
+  .cta{ margin: 0 15px; }
 }
 
-/* ============================
-   ANIMAÇÃO BOTÃO CHAT (PULSE)
-============================ */
+/* AJUSTES CHATBOT MOBILE */
+@media (max-width: 768px) {
+  #chatBot{
+    left: 15px !important;
+    right: 15px !important;
+    bottom: 90px !important;
+    width: auto !important;
+  }
+  #chatLauncher{
+    left:15px;
+    bottom:100px;
+  }
+}
+
+/* ANIMAÇÃO PULSE */
 @keyframes pulseChat {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(214,40,40, 0.7);
-  }
-  70% {
-    transform: scale(1.04);
-    box-shadow: 0 0 0 14px rgba(214,40,40, 0);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(214,40,40, 0);
-  }
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214,40,40, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(214,40,40, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214,40,40, 0); }
 }
 
 #chatLauncher{
   animation: pulseChat 2.2s infinite;
 }
-
 
 </style>
 </head>
@@ -413,16 +398,11 @@ footer p,footer a{
 
 <section class="hero" id="inicio">
   <div class="hero-content">
-    <h1>
-      Instalação profissional de aquecedores a gás<br>
-      em Canoas e região
-    </h1>
-
+    <h1>Instalação profissional de aquecedores a gás em Canoas</h1>
     <p class="hero-sub">
       Venda, instalação, manutenção e assistência técnica especializada.<br>
       Segurança, conforto e garantia no serviço.
     </p>
-
     <div class="hero-actions">
       <a href="#contato" class="btn-principal">Solicitar orçamento</a>
       <a href="https://wa.me/5551998961031" class="btn-secundario">Falar com especialista</a>
@@ -449,28 +429,27 @@ footer p,footer a{
   </div>
 </section>
 
-
 <section class="sobre" id="sobre">
   <div>
     <h2>Pro Aquecedores</h2>
     <p>Atuamos em Canoas e região com instalação, manutenção e venda de aquecedores a gás.</p>
-    <p>Equipe técnica especializada, seguindo todas as normas de segurança.</p>
+    <p>Equipe técnica especializada, seguindo todas as normas de segurança vigentes para sua tranquilidade.</p>
     <a class="btn-whats" href="https://wa.me/5551998961031" target="_blank">
       Falar no WhatsApp
     </a>
   </div>
-  <img src="aquecedor2.jpg" style="width:100%;border-radius:16px">
+  <img src="aquecedor2.jpg" style="width:100%; border-radius:20px; box-shadow: var(--shadow);">
 </section>
 
 <section class="vantagens">
-  <div></div>
-  <div>
-    <h2>Por que escolher a Pro Aquecedores?</h2>
+  <div style="background: url('aquecedor3.jpg') center/cover; min-height: 350px; border-radius: 25px 0 0 25px;" class="hide-mobile"></div>
+  <div style="padding: 50px;">
+    <h2>Por que nos escolher?</h2>
     <ul>
-      <li>🔥 Instalação profissional</li>
-      <li>🛠️ Manutenção especializada</li>
+      <li>🔥 Instalação profissional certificada</li>
+      <li>🛠️ Manutenção preventiva e corretiva</li>
       <li>🌡️ Conforto térmico garantido</li>
-      <li>⚡ Economia e eficiência</li>
+      <li>⚡ Economia e eficiência para seu lar</li>
     </ul>
   </div>
 </section>
@@ -478,12 +457,11 @@ footer p,footer a{
 <section class="como-funciona">
   <h2>Como funciona o atendimento</h2>
   <div class="steps">
-    <div>1️⃣ Você entra em contato</div>
-    <div>2️⃣ Avaliamos sua necessidade</div>
-    <div>3️⃣ Instalamos com segurança</div>
+    <div class="step-box">1️⃣ Você entra em contato</div>
+    <div class="step-box">2️⃣ Avaliamos sua necessidade</div>
+    <div class="step-box">3️⃣ Instalamos com segurança</div>
   </div>
 </section>
-
 
 <section class="servicos" id="servicos">
   <h2>Nossos Serviços</h2>
@@ -498,13 +476,15 @@ footer p,footer a{
 
 <section class="cta" id="contato">
   <h2>Solicite um orçamento agora mesmo</h2>
+  <p style="margin-bottom: 30px; opacity: 0.9;">Atendimento ágil para Canoas e Região Metropolitana.</p>
   <a href="https://wa.me/5551998961031" target="_blank">Atendimento via WhatsApp</a>
 </section>
 
 <footer>
   <div class="footer-grid">
     <div>
-      <img src="logo.png" style="height:40px">
+      <img src="logo.png" style="height:45px; margin-bottom: 20px;">
+      <p>Sua segurança e conforto são nossa prioridade número um.</p>
     </div>
     <div>
       <h3>Contato</h3>
@@ -516,325 +496,92 @@ footer p,footer a{
       <a href="#inicio">Início</a>
       <a href="#servicos">Serviços</a>
       <a href="#sobre">Quem Somos</a>
-      <a href="#contato">Contato</a>
     </div>
   </div>
-  <div class="copy">© 2025 Pro Aquecedores</div>
+  <div class="copy">© 2025 Pro Aquecedores - Todos os direitos reservados.</div>
 </footer>
 
 <a class="whatsapp-float" href="https://wa.me/5551998961031" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
-<!-- POPUP DE LEADS -->
-<div id="popupLead" style="
-display:none;
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,.6);
-z-index:99999;
-align-items:center;
-justify-content:center;
-">
-
-  <div style="
-  background:#fff;
-  width:90%;
-  max-width:400px;
-  padding:30px;
-  border-radius:14px;
-  text-align:center;
-  position:relative;
-  ">
-
-    <span onclick="fecharPopup()" style="
-    position:absolute;
-    top:12px;
-    right:14px;
-    cursor:pointer;
-    font-size:18px;
-    ">✖</span>
-
-    <h2 style="color:#d62828;margin-bottom:10px">
-      🎉 Ganhe 5% de desconto
-    </h2>
-
-    <p style="margin-bottom:20px">
-      Informe seu nome e WhatsApp e receba um desconto exclusivo
-    </p>
-
-    <input id="leadNome" placeholder="Seu nome" style="
-    width:100%;
-    padding:12px;
-    margin-bottom:10px;
-    border-radius:6px;
-    border:1px solid #ccc;
-    ">
-
-    <input id="leadTelefone" placeholder="WhatsApp (DDD)" style="
-    width:100%;
-    padding:12px;
-    margin-bottom:15px;
-    border-radius:6px;
-    border:1px solid #ccc;
-    ">
-
-    <button onclick="salvarLead()" style="
-    width:100%;
-    padding:14px;
-    background:#d62828;
-    color:#fff;
-    border:none;
-    border-radius:8px;
-    font-weight:700;
-    cursor:pointer;
-    ">
-      Quero meu desconto
-    </button>
-
+<div id="popupLead" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:99999;align-items:center;justify-content:center;">
+  <div style="background:#fff;width:90%;max-width:400px;padding:35px;border-radius:20px;text-align:center;position:relative;box-shadow: 0 15px 50px rgba(0,0,0,0.3);">
+    <span onclick="fecharPopup()" style="position:absolute;top:15px;right:18px;cursor:pointer;font-size:20px;color:#999;">✖</span>
+    <h2 style="color:#d62828;margin-bottom:12px; font-weight: 800;">🎉 Ganhe 5% de desconto</h2>
+    <p style="margin-bottom:25px; color: #555;">Informe seu nome e WhatsApp e receba um desconto exclusivo agora mesmo.</p>
+    <input id="leadNome" placeholder="Seu nome" style="width:100%;padding:14px;margin-bottom:12px;border-radius:10px;border:1px solid #ddd; outline: none;">
+    <input id="leadTelefone" placeholder="WhatsApp (DDD)" style="width:100%;padding:14px;margin-bottom:20px;border-radius:10px;border:1px solid #ddd; outline: none;">
+    <button onclick="salvarLead()" style="width:100%;padding:16px;background:#d62828;color:#fff;border:none;border-radius:10px;font-weight:700;cursor:pointer;">Quero meu desconto</button>
   </div>
 </div>
-<!-- CHAT ROBÔ ATENDIMENTO COMPLETO -->
-<div id="chatBot" style="
-display:none;
-position:fixed;
-bottom:110px;
-left:20px;
-width:320px;
-background:#fff;
-border-radius:16px;
-box-shadow:0 10px 30px rgba(0,0,0,.25);
-z-index:9999;
-font-family:Inter,sans-serif;
-overflow:hidden;
-">
 
-  <div style="
-  background:#d62828;
-  color:#fff;
-  padding:14px;
-  font-weight:800;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-">
-  🤖 Assistente Pro Aquecedores
-  <span onclick="fecharChat()" style="
-    cursor:pointer;
-    font-size:18px;
-    font-weight:900;
-  ">✖</span>
-</div>
-
-
-  <div id="chatArea" style="
-  padding:14px;
-  height:260px;
-  overflow-y:auto;
-  font-size:14px;
-  "></div>
-
-  <div id="chatInput" style="padding:12px;display:none">
-    <input id="userInput" placeholder="Digite aqui..." style="
-    width:100%;
-    padding:10px;
-    border-radius:8px;
-    border:1px solid #ccc;
-    ">
+<div id="chatBot" style="display:none;position:fixed;bottom:110px;left:20px;width:330px;background:#fff;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,0.2);z-index:9999;overflow:hidden;">
+  <div style="background:#d62828;color:#fff;padding:18px;font-weight:800;display:flex;justify-content:space-between;align-items:center;">
+    <span>🤖 Assistente Pro Aquecedores</span>
+    <span onclick="fecharChat()" style="cursor:pointer;font-size:20px;">✖</span>
   </div>
-
+  <div id="chatArea" style="padding:18px;height:280px;overflow-y:auto;font-size:14px;background:#fcfcfc;"></div>
+  <div id="chatInput" style="padding:15px;display:none;border-top:1px solid #eee;">
+    <input id="userInput" placeholder="Digite sua cidade..." style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;outline:none;">
+  </div>
 </div>
 
-<style>
-.botBtn{
-  background:#25d366;
-  color:#fff;
-  border:none;
-  padding:10px;
-  margin:5px 4px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:700;
-}
-.botBtn:hover{opacity:.9}
-</style>
+<div id="chatLauncher" onclick="abrirChat()" style="position:fixed;bottom:110px;left:20px;background:#d62828;color:#fff;padding:14px 22px;border-radius:50px;display:flex;align-items:center;gap:12px;cursor:pointer;box-shadow:0 8px 25px rgba(214,40,40,0.4);z-index:9999;">
+  <span style="background:#fff;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;">🤖</span>
+  <span id="chatSaudacao" style="font-weight:700;font-size:14px;">Olá! Posso ajudar?</span>
+</div>
 
 <script>
-let etapa = 0;
-let dados = {};
-
-// Saudação automática
-function saudacao(){
-  const h = new Date().getHours();
-  if(h < 12) return "☀️ Bom dia!";
-  if(h < 18) return "🌤️ Boa tarde!";
-  return "🌙 Boa noite!";
-}
-
-// Adiciona mensagem no chat
+let etapa = 0; let dados = {};
+function saudacao(){ const h = new Date().getHours(); if(h < 12) return "☀️ Bom dia!"; if(h < 18) return "🌤️ Boa tarde!"; return "🌙 Boa noite!"; }
 function addMsg(text, bot=true){
   const chat = document.getElementById("chatArea");
   const msg = document.createElement("div");
-  msg.style.margin = "8px 0";
+  msg.style.margin = "10px 0";
   msg.style.textAlign = bot ? "left" : "right";
-  msg.innerHTML = `
-    <span style="
-    display:inline-block;
-    background:${bot ? "#f1f1f1" : "#25d366"};
-    color:${bot ? "#000" : "#fff"};
-    padding:10px;
-    border-radius:12px;
-    max-width:85%;
-    ">
-      ${text}
-    </span>
-  `;
-  chat.appendChild(msg);
-  chat.scrollTop = chat.scrollHeight;
+  msg.innerHTML = `<span style="display:inline-block;background:${bot ? "#f1f1f1" : "#25d366"};color:${bot ? "#000" : "#fff"};padding:12px 16px;border-radius:15px;max-width:85%; font-weight:500;">${text}</span>`;
+  chat.appendChild(msg); chat.scrollTop = chat.scrollHeight;
 }
-
-// Inicia o atendimento imediatamente
 addMsg(`${saudacao()} Sou o assistente da Pro Aquecedores 👋`);
-setTimeout(() => addMsg("Posso te ajudar agora?"), 500);
-
+setTimeout(() => addMsg("Como posso ajudar você hoje?"), 500);
 setTimeout(() => {
   const chat = document.getElementById("chatArea");
   const div = document.createElement("div");
-  div.innerHTML = `
-    <button class="botBtn" onclick="iniciar()">💬 Iniciar atendimento</button>
-  `;
+  div.innerHTML = `<button class="botBtn" onclick="iniciar()">💬 Iniciar atendimento</button>`;
   chat.appendChild(div);
 }, 1000);
-
-// Início do fluxo
-function iniciar(){
-  addMsg("Iniciar atendimento", false);
-  setTimeout(() => {
-    addMsg("Perfeito! O que você deseja?");
-    mostrarServicos();
-  }, 600);
-}
-
-// Opções de serviço
+function iniciar(){ addMsg("Iniciar atendimento", false); setTimeout(() => { addMsg("Perfeito! Escolha uma opção abaixo:"); mostrarServicos(); }, 600); }
 function mostrarServicos(){
   const chat = document.getElementById("chatArea");
   const div = document.createElement("div");
-  div.innerHTML = `
-    <button class="botBtn" onclick="escolherServico('Compra de aquecedor')">🛒 Compra de aquecedor</button>
-    <button class="botBtn" onclick="escolherServico('Instalação')">🔧 Instalação</button>
-    <button class="botBtn" onclick="escolherServico('Manutenção')">🛠️ Manutenção</button>
-    <button class="botBtn" onclick="escolherServico('Assistência técnica')">🆘 Assistência técnica</button>
-  `;
+  div.innerHTML = `<button class="botBtn" onclick="escolherServico('Compra de aquecedor')">🛒 Compra</button><button class="botBtn" onclick="escolherServico('Instalação')">🔧 Instalação</button><button class="botBtn" onclick="escolherServico('Manutenção')">🛠️ Manutenção</button><button class="botBtn" onclick="escolherServico('Assistência técnica')">🆘 Assistência</button>`;
   chat.appendChild(div);
 }
-
 function escolherServico(servico){
-  dados.servico = servico;
-  addMsg(servico, false);
-  setTimeout(() => {
-    addMsg("Perfeito 👍 De qual cidade você é?");
-    document.getElementById("chatInput").style.display = "block";
-    etapa = 1;
-  }, 600);
+  dados.servico = servico; addMsg(servico, false);
+  setTimeout(() => { addMsg("Ótimo 👍 Em qual cidade você está?"); document.getElementById("chatInput").style.display = "block"; etapa = 1; }, 600);
 }
-
-// Entrada de texto (cidade)
 document.getElementById("userInput").addEventListener("keydown", e => {
   if(e.key === "Enter" && etapa === 1){
-    const cidade = e.target.value.trim();
-    if(!cidade) return;
-    dados.cidade = cidade;
-    addMsg(cidade, false);
-    e.target.value = "";
+    const cidade = e.target.value.trim(); if(!cidade) return;
+    dados.cidade = cidade; addMsg(cidade, false); e.target.value = "";
     document.getElementById("chatInput").style.display = "none";
-
-    setTimeout(() => {
-      addMsg("Ótimo! Vou te encaminhar para um atendente agora 😊");
-      setTimeout(() => {
-        window.open(
-          `https://wa.me/5551998961031?text=${encodeURIComponent(
-            `Olá! Gostaria de ${dados.servico}. Sou de ${dados.cidade}.`
-          )}`,
-          "_blank"
-        );
-      }, 1200);
+    setTimeout(() => { addMsg("Estou te conectando agora mesmo com nossos técnicos... 😊");
+      setTimeout(() => { window.open(`https://wa.me/5551998961031?text=${encodeURIComponent(`Olá! Gostaria de ${dados.servico}. Sou de ${dados.cidade}.`)}`, "_blank"); }, 1200);
     }, 600);
   }
 });
-</script>
-
-<!-- BOTÃO CHAT FECHADO -->
-<div id="chatLauncher" onclick="abrirChat()" style="
-position:fixed;
-bottom:110px;
-left:20px;
-background:#d62828;
-color:#fff;
-padding:12px 16px;
-border-radius:50px;
-display:flex;
-align-items:center;
-gap:10px;
-cursor:pointer;
-box-shadow:0 8px 20px rgba(0,0,0,.3);
-z-index:9999;
-">
-
-  <span style="
-  background:#fff;
-  color:#d62828;
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
-  ">
-    🤖
-  </span>
-
-  <span id="chatSaudacao" style="font-weight:700;font-size:14px">
-    Olá! Posso ajudar?
-  </span>
-</div>
-
-<script>
-// Saudação dinâmica
-function textoSaudacao(){
-  const h = new Date().getHours();
-  if(h < 12) return "☀️ Bom dia! Posso ajudar?";
-  if(h < 18) return "🌤️ Boa tarde! Posso ajudar?";
-  return "🌙 Boa noite! Posso ajudar?";
-}
-
+function textoSaudacao(){ const h = new Date().getHours(); if(h < 12) return "☀️ Bom dia! Posso ajudar?"; if(h < 18) return "🌤️ Boa tarde! Posso ajudar?"; return "🌙 Boa noite! Posso ajudar?"; }
 document.getElementById("chatSaudacao").innerText = textoSaudacao();
-
-// Abrir chat
-function abrirChat(){
-  const launcher = document.getElementById("chatLauncher");
-  launcher.style.display = "none";
-  launcher.style.animation = "none"; // para o piscar
-
-  document.getElementById("chatBot").style.display = "block";
-}
-
-// (Opcional) fechar chat depois
-function fecharChat(){
-  document.getElementById("chatBot").style.display = "none";
-  document.getElementById("chatLauncher").style.display = "flex";
-}
+function abrirChat(){ document.getElementById("chatLauncher").style.display = "none"; document.getElementById("chatBot").style.display = "block"; }
+function fecharChat(){ document.getElementById("chatBot").style.display = "none"; document.getElementById("chatLauncher").style.display = "flex"; }
 </script>
-
-
-
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// 🔥 SEU FIREBASE (JÁ CONFIGURADO)
 const firebaseConfig = {
   apiKey: "AIzaSyBod8YVf5pKWI98m9rRR8axokDkNMlXX-k",
   authDomain: "aviatordaniel100x.firebaseapp.com",
@@ -843,55 +590,19 @@ const firebaseConfig = {
   messagingSenderId: "169015417803",
   appId: "1:169015417803:web:ce4aa4f9b77d5ddb07344e"
 };
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// ⏱️ ABRE POPUP APÓS 4s ATÉ O LEAD SER ENVIADO
-if(!localStorage.getItem("leadEnviado")){
-  setTimeout(() => {
-    document.getElementById("popupLead").style.display = "flex";
-  }, 4000);
-}
-
-// ❌ FECHAR
-window.fecharPopup = function(){
-  document.getElementById("popupLead").style.display = "none";
-  localStorage.setItem("popupLeadVisto","sim");
-}
-
-// 💾 SALVAR LEAD
+if(!localStorage.getItem("leadEnviado")){ setTimeout(() => { document.getElementById("popupLead").style.display = "flex"; }, 4000); }
+window.fecharPopup = function(){ document.getElementById("popupLead").style.display = "none"; localStorage.setItem("popupLeadVisto","sim"); }
 window.salvarLead = async function(){
   const nome = document.getElementById("leadNome").value.trim();
   const telefone = document.getElementById("leadTelefone").value.trim();
-
-  if(nome === "" || telefone === ""){
-    alert("Preencha nome e WhatsApp");
-    return;
-  }
-
-  await addDoc(collection(db, "leads"), {
-    nome: nome,
-    telefone: telefone,
-    origem: "popup_site",
-    desconto: "5%",
-    data: serverTimestamp()
-  });
-
-  localStorage.setItem("popupLeadVisto","sim");
-
-  window.open(
-  `https://wa.me/5551998961031?text=Olá, meu nome é ${nome}. Solicitei o desconto de 5% no site.`,
-  "_blank"
-);
-
-document.getElementById("popupLead").innerHTML = `
-  <div style="background:#fff;padding:30px;border-radius:14px;text-align:center">
-    <h2 style="color:#25d366">✔ Solicitação enviada</h2>
-    <p>Você será atendido agora mesmo pelo WhatsApp.</p>
-  </div>
-`;
-
+  if(nome === "" || telefone === ""){ alert("Preencha todos os campos"); return; }
+  await addDoc(collection(db, "leads"), { nome, telefone, origem: "popup_site", data: serverTimestamp() });
+  localStorage.setItem("leadEnviado","sim");
+  window.open(`https://wa.me/5551998961031?text=Olá, meu nome é ${nome}. Quero meu desconto de 5% solicitado no site!`, "_blank");
+  document.getElementById("popupLead").innerHTML = `<div style="padding:40px;"><h2 style="color:#25d366">✔ Enviado!</h2><p>Você será atendido agora no WhatsApp.</p></div>`;
 }
 </script>
 

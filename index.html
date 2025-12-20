@@ -238,6 +238,40 @@ footer p,footer a{
     text-align:center;
   }
 }
+
+/* ===============================
+   AJUSTES CHATBOT MOBILE
+================================ */
+@media (max-width: 768px) {
+
+  #chatBot{
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 80px !important;
+    width: auto !important;
+    max-width: calc(100% - 20px);
+    border-radius: 14px;
+  }
+
+  #chatArea{
+    height: 220px !important;
+    font-size: 15px;
+  }
+
+  .botBtn{
+    width: 100%;
+    margin: 6px 0;
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  #chatInput input{
+    font-size: 16px; /* evita zoom automático no iOS */
+    padding: 12px;
+  }
+
+}
+
 </style>
 </head>
 
@@ -392,84 +426,167 @@ justify-content:center;
 
   </div>
 </div>
-<!-- CHAT DE ATENDIMENTO -->
-<div id="chatAtendimento" style="
+<!-- CHAT ROBÔ ATENDIMENTO COMPLETO -->
+<div id="chatBot" style="
 position:fixed;
 bottom:110px;
-right:20px;
-width:280px;
+left:20px;
+width:320px;
 background:#fff;
-border-radius:14px;
-box-shadow:0 8px 24px rgba(0,0,0,.2);
-display:none;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
 z-index:9999;
 font-family:Inter,sans-serif;
+overflow:hidden;
 ">
 
   <div style="
   background:#d62828;
   color:#fff;
-  padding:12px 16px;
-  border-radius:14px 14px 0 0;
-  font-weight:700;
+  padding:14px;
+  font-weight:800;
   ">
-    Atendimento Pro Aquecedores
+    🤖 Assistente Pro Aquecedores
   </div>
 
-  <div style="padding:14px;font-size:14px;line-height:1.4">
-    👋 Olá! Vi que você está navegando em nosso site.<br><br>
-    Posso te ajudar com um orçamento ou tirar alguma dúvida?
-  </div>
+  <div id="chatArea" style="
+  padding:14px;
+  height:260px;
+  overflow-y:auto;
+  font-size:14px;
+  "></div>
 
-  <div style="padding:14px;display:flex;gap:10px">
-    <button onclick="abrirWhats()" style="
-    flex:1;
-    background:#25d366;
-    color:#fff;
-    border:none;
+  <div id="chatInput" style="padding:12px;display:none">
+    <input id="userInput" placeholder="Digite aqui..." style="
+    width:100%;
     padding:10px;
     border-radius:8px;
-    font-weight:700;
-    cursor:pointer;
+    border:1px solid #ccc;
     ">
-      WhatsApp
-    </button>
-
-    <button onclick="fecharChat()" style="
-    flex:1;
-    background:#eee;
-    border:none;
-    padding:10px;
-    border-radius:8px;
-    cursor:pointer;
-    ">
-      Agora não
-    </button>
   </div>
 
 </div>
 
+<style>
+.botBtn{
+  background:#25d366;
+  color:#fff;
+  border:none;
+  padding:10px;
+  margin:5px 4px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:700;
+}
+.botBtn:hover{opacity:.9}
+</style>
+
 <script>
-// abre após 15 segundos
-if(!localStorage.getItem("chatMostrado")){
+let etapa = 0;
+let dados = {};
+
+// Saudação automática
+function saudacao(){
+  const h = new Date().getHours();
+  if(h < 12) return "☀️ Bom dia!";
+  if(h < 18) return "🌤️ Boa tarde!";
+  return "🌙 Boa noite!";
+}
+
+// Adiciona mensagem no chat
+function addMsg(text, bot=true){
+  const chat = document.getElementById("chatArea");
+  const msg = document.createElement("div");
+  msg.style.margin = "8px 0";
+  msg.style.textAlign = bot ? "left" : "right";
+  msg.innerHTML = `
+    <span style="
+    display:inline-block;
+    background:${bot ? "#f1f1f1" : "#25d366"};
+    color:${bot ? "#000" : "#fff"};
+    padding:10px;
+    border-radius:12px;
+    max-width:85%;
+    ">
+      ${text}
+    </span>
+  `;
+  chat.appendChild(msg);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+// Inicia o atendimento imediatamente
+addMsg(`${saudacao()} Sou o assistente da Pro Aquecedores 👋`);
+setTimeout(() => addMsg("Posso te ajudar agora?"), 500);
+
+setTimeout(() => {
+  const chat = document.getElementById("chatArea");
+  const div = document.createElement("div");
+  div.innerHTML = `
+    <button class="botBtn" onclick="iniciar()">💬 Iniciar atendimento</button>
+  `;
+  chat.appendChild(div);
+}, 1000);
+
+// Início do fluxo
+function iniciar(){
+  addMsg("Iniciar atendimento", false);
   setTimeout(() => {
-    document.getElementById("chatAtendimento").style.display = "block";
-  }, 20000);
+    addMsg("Perfeito! O que você deseja?");
+    mostrarServicos();
+  }, 600);
 }
 
-function fecharChat(){
-  document.getElementById("chatAtendimento").style.display = "none";
-  localStorage.setItem("chatMostrado","sim");
+// Opções de serviço
+function mostrarServicos(){
+  const chat = document.getElementById("chatArea");
+  const div = document.createElement("div");
+  div.innerHTML = `
+    <button class="botBtn" onclick="escolherServico('Compra de aquecedor')">🛒 Compra de aquecedor</button>
+    <button class="botBtn" onclick="escolherServico('Instalação')">🔧 Instalação</button>
+    <button class="botBtn" onclick="escolherServico('Manutenção')">🛠️ Manutenção</button>
+    <button class="botBtn" onclick="escolherServico('Assistência técnica')">🆘 Assistência técnica</button>
+  `;
+  chat.appendChild(div);
 }
 
-function abrirWhats(){
-  window.open(
-    "https://wa.me/5551998961031?text=Olá, estou no site da Pro Aquecedores e gostaria de um orçamento.",
-    "_blank"
-  );
-  localStorage.setItem("chatMostrado","sim");
+function escolherServico(servico){
+  dados.servico = servico;
+  addMsg(servico, false);
+  setTimeout(() => {
+    addMsg("Perfeito 👍 De qual cidade você é?");
+    document.getElementById("chatInput").style.display = "block";
+    etapa = 1;
+  }, 600);
 }
+
+// Entrada de texto (cidade)
+document.getElementById("userInput").addEventListener("keydown", e => {
+  if(e.key === "Enter" && etapa === 1){
+    const cidade = e.target.value.trim();
+    if(!cidade) return;
+    dados.cidade = cidade;
+    addMsg(cidade, false);
+    e.target.value = "";
+    document.getElementById("chatInput").style.display = "none";
+
+    setTimeout(() => {
+      addMsg("Ótimo! Vou te encaminhar para um atendente agora 😊");
+      setTimeout(() => {
+        window.open(
+          `https://wa.me/5551998961031?text=${encodeURIComponent(
+            `Olá! Gostaria de ${dados.servico}. Sou de ${dados.cidade}.`
+          )}`,
+          "_blank"
+        );
+      }, 1200);
+    }, 600);
+  }
+});
 </script>
+
+
+
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";

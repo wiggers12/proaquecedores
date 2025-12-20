@@ -271,6 +271,96 @@ footer p,footer a{
   }
 
 }
+.hero-content{
+  max-width:600px;
+  text-align:right;
+}
+
+.hero-sub{
+  color:#fff;
+  font-size:18px;
+  margin:20px 0 30px;
+  line-height:1.5;
+}
+
+.hero-actions{
+  display:flex;
+  gap:16px;
+  justify-content:flex-end;
+}
+
+.btn-principal{
+  background:#fff;
+  color:#d62828;
+  padding:14px 30px;
+  border-radius:8px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.btn-secundario{
+  border:2px solid #fff;
+  color:#fff;
+  padding:14px 30px;
+  border-radius:8px;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.autoridade{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+  padding:40px 6%;
+  background:#fff;
+  text-align:center;
+}
+
+.autoridade-card{
+  background:#f7f7f7;
+  padding:30px 20px;
+  border-radius:14px;
+}
+
+.autoridade-card strong{
+  display:block;
+  font-size:28px;
+  color:#d62828;
+}
+
+.autoridade-card span{
+  font-size:15px;
+  color:#444;
+}
+
+.como-funciona{
+  text-align:center;
+  padding:80px 6%;
+}
+
+.como-funciona h2{
+  font-size:36px;
+  margin-bottom:40px;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  font-size:18px;
+}
+
+.fade-up{
+  opacity:0;
+  transform:translateY(20px);
+  transition:.6s ease;
+}
+.fade-up.show{
+  opacity:1;
+  transform:none;
+}
+
+
 
 </style>
 </head>
@@ -288,8 +378,43 @@ footer p,footer a{
 </header>
 
 <section class="hero" id="inicio">
-  <h1>Especialistas em aquecedores a gás.<br>Conforto, segurança e qualidade.</h1>
+  <div class="hero-content">
+    <h1>
+      Instalação profissional de aquecedores a gás<br>
+      em Canoas e região
+    </h1>
+
+    <p class="hero-sub">
+      Venda, instalação, manutenção e assistência técnica especializada.<br>
+      Segurança, conforto e garantia no serviço.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#contato" class="btn-principal">Solicitar orçamento</a>
+      <a href="https://wa.me/5551998961031" class="btn-secundario">Falar com especialista</a>
+    </div>
+  </div>
 </section>
+
+<section class="autoridade">
+  <div class="autoridade-card">
+    <strong>+1.000</strong>
+    <span>Atendimentos realizados</span>
+  </div>
+  <div class="autoridade-card">
+    <strong>Técnicos</strong>
+    <span>Especializados</span>
+  </div>
+  <div class="autoridade-card">
+    <strong>Canoas</strong>
+    <span>Região atendida</span>
+  </div>
+  <div class="autoridade-card">
+    <strong>Garantia</strong>
+    <span>Segurança no serviço</span>
+  </div>
+</section>
+
 
 <section class="sobre" id="sobre">
   <div>
@@ -315,6 +440,16 @@ footer p,footer a{
     </ul>
   </div>
 </section>
+
+<section class="como-funciona">
+  <h2>Como funciona o atendimento</h2>
+  <div class="steps">
+    <div>1️⃣ Você entra em contato</div>
+    <div>2️⃣ Avaliamos sua necessidade</div>
+    <div>3️⃣ Instalamos com segurança</div>
+  </div>
+</section>
+
 
 <section class="servicos" id="servicos">
   <h2>Nossos Serviços</h2>
